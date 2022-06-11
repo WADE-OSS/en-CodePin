@@ -1,0 +1,25 @@
+---
+layout: null
+---
+{% assign posts = site.posts | size %}
+{
+  "post":{{ posts }},
+  "baseurl":"{{ site.baseurl }}",
+  "data":{
+    {% assign i = 0 %}
+    {% for post in site.posts %}
+      {% assign words = post.content | number_of_words %}
+      {% assign i = i | plus:1 %}
+      "{{ i }}":{
+        "title":"{{ post.title }}",
+        "url":"{{ site.url }}{{ post.url }}",
+        "categories":"{{ post.categories }}",
+        "tag":"{{ post.tag }}",
+        "explanation":"{{ post.info }}",
+        "date":"{{ post.date }}",
+        "readingTime":{% if words < 360 %}1{% else %}{{ words | divided_by:180 }}{% endif %},
+        "word":{{ words }}
+      }{% if i != posts %},{% endif %}
+    {% endfor %}
+  }
+}

@@ -1,0 +1,76 @@
+---
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %} - WADE developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ site.url }}/assets/styles/style.css">
+    <link rel="icon" href="{{ site.url }}/assets/icon/favicon.ico" />
+    <meta property="og:title" content="WADE developer - {% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %}">
+    <meta property="og:description" content="{{ page.info }}">
+    <meta name="author" content="CodePin">
+    <meta name="og:site_name" content="CodePin" />
+    <meta name="theme-color" content="#8695d6">
+    <meta name="keywords" content="온라인 코딩, 응용 소프트웨어, 개발, 소프트웨어, codepin, 코딩, wade, wadeoss, 코드핀, html, css, js, Javascript, PHP, python, 파이썬, 자바스크립트, Tutorials, Programming, Web Development, Training, Learning, 튜토리얼, 프로그래밍, 웹, 개발, 코드 예시, Examples, Learn to code, Source code, Demos, Tips, Website, 웹앱, {{ page.categorys }}, {{ page.title }}" />
+    <meta itemprop="description" name="description" content="{% if page.description %}{{ page.description | truncate: 160 }}{% else %}{{ site.description | truncate: 160  }}{% endif %}" />
+    <meta property="og:type" content="website">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1675122866783349" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <!-- Navs -->
+    <div class="navs">
+        <a href="{{ site.url }}" class="logo">CodePin</a>
+        <div class="link">
+            <div class="dropdown">
+                <button class="dropbtn">카테고리</button>
+                <div class="dropdown-content">
+                  <a href="{{ site.url }}/html/introduction" class="html">HTML</a>
+                  <a href="{{ site.url }}/css/introduction" class="css">CSS</a>
+                  <a href="{{ site.url }}/javascript/introduction" class="javascript">JavaScript</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- Docs -->
+    <div class="docs">
+        <div class="scroll">
+            <div class="sidebar">
+                {% for tag in site.tags %}
+                        
+                        {% for postTag in tag[1] %}
+                            {% if postTag.categories == page.categories %}
+                                {% if t != tag[0] %}
+                                    <p>{{ tag[0] }}</p>
+                                    {% assign t = tag[0] %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                
+                        {% assign pages = tag[1] | sort:"order" %}
+                        {% for post in pages %}
+                            {% if post.categories == page.categories %}
+                                {% if post.title == page.title %}
+                                    <a href="{{ post.url }}" class="active">{{ post.title }}</a>
+                                {% else %}
+                                    <a href="{{ post.url }}">{{ post.title }}</a>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="contents">
+            {{ content }}
+            <p style="font-size: 12px;margin-top: 70px;">Portions of the content are owned by WADE OSS. © 2022 WADE OSS</p>
+        </div>
+    </div>
+</body>
+</html>

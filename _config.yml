@@ -1,0 +1,30 @@
+# Basic
+name:               "WADE Developers"
+
+# URL
+baseurl:            "https://wade.pw"
+permalink:          /:categories/:title
+
+# Markdown
+markdown:           rdiscount
+
+css:
+  style:            :compressed
+
+futrue: true
+
+timezone: Asia/Seoul
+# Scopes
+defaults:
+  -
+    scope:
+      path:         ""
+      type:         "pages"
+    values:
+      layout:       "page"
+  -
+    scope:
+      path:         ""
+      type:         "posts"
+    values:
+      layout:       "post"

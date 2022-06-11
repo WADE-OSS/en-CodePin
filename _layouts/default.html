@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WADE developer - {% if page.title %}{{ page.title }}{% else %}{{ site.name }}{% endif %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ site.url }}/assets/styles/style.css">
+    <link rel="icon" href="{{ site.url }}/assets/icon/favicon.ico" />
+    {% if page.style %}<link rel="stylesheet" href="{{ site.url }}/assets/styles/{{ page.style }}">{% endif %}
+    <meta property="og:title" content="WADE developer - CodePin">
+    <meta property="og:description" content="함께 만들어나가는 개발자 플랫폼, CodePin.">
+    <meta name="author" content="CodePin">
+    <meta name="og:site_name" content="CodePin" />
+    <meta name="theme-color" content="#8695d6">
+    <meta name="keywords" content="온라인 코딩, 응용 소프트웨어, 개발, 소프트웨어, codepin, 코딩, wade, wadeoss, 코드핀, html, css, js, Javascript, PHP, python, 파이썬, 자바스크립트, Tutorials, Programming, Web Development, Training, Learning, 튜토리얼, 프로그래밍, 웹, 개발, 코드 예시, Examples, Learn to code, Source code, Demos, Tips, Website, 웹앱" />
+    <meta property="og:type" content="website">
+</head>
+<body>
+    
+    <!-- Navs -->
+    <div class="navs">
+        <a href="{{ site.url }}" class="logo">CodePin</a>
+        <div class="link">
+            <div class="dropdown">
+                <button class="dropbtn">카테고리</button>
+                <div class="dropdown-content">
+                  <a href="{{ site.url }}/html/introduction" class="html">HTML</a>
+                  <a href="{{ site.url }}/css/introduction" class="css">CSS</a>
+                  <a href="{{ site.url }}/javascript/introduction" class="javascript">JavaScript</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contents -->
+    {{ content }}
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <h1>CodePin</h1>
+            <p class="copy">Portions of the content are owned by WADE OSS. © 2022 WADE OSS</p>
+        </div>
+    </footer>
+    
+</body>
+</html>
